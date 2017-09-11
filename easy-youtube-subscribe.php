@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/easy-youtube-subscribe/
 Author: Mahabubur Rahman
 Author URI: http://mahabub.me
 Description: Youtube channel subscribe plugin for wordpress
-Version: 1.1.0
+Version: 2.0.0
 */
 
 class SMYouTubesubscribe_Widget extends WP_Widget {
@@ -32,7 +32,7 @@ class SMYouTubesubscribe_Widget extends WP_Widget {
 		extract( $args );
      
 	    $title      	= apply_filters( 'widget_title', $instance['title'] );
-	    $channel_id    	= ($instance['channel_id'])?$instance['channel_id']:'UCqCoPdssS6PLjnjtU1bwqdQ';	     
+	    $channel_id    	= ($instance['channel_id'])?$instance['channel_id']:'UCKIG1BY9SOv2Hg1q5I8WLBQ';	     
 	    $layout    		= ($instance['layout'])?'full':'default';	     
 	    $theme    		= ($instance['theme'])?'dark':'default';	     
 	    $count    		= ($instance['count'])?'hidden':'default';	     
@@ -42,8 +42,16 @@ class SMYouTubesubscribe_Widget extends WP_Widget {
 	    }	                         
 	    // echo $theme;	    
 		?>
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<div class="g-ytsubscribe" data-channelid="<?php echo $channel_id; ?>" data-layout="<?php echo $layout; ?>" data-theme="<?php echo $theme; ?>" data-count="<?php echo $count; ?>"></div>
+		<style type="text/css">
+			.dark_theme{
+				padding: 8px; 
+				background: rgb(85, 85, 85);
+			}
+		</style>
+		<div class="ytsubscribe_container <?php echo $theme; ?>_theme">
+			<script src="https://apis.google.com/js/platform.js"></script>
+			<div class="g-ytsubscribe" data-channelid="<?php echo $channel_id; ?>" data-layout="<?php echo $layout; ?>" data-theme="<?php echo $theme; ?>" data-count="<?php echo $count; ?>"></div>
+		</div>
 		<?php
 		echo $after_widget;
 	}

@@ -224,24 +224,31 @@ function sm_youtube_subscribe_shortcode( $atts ){
 	$instance = get_option( 'sm_youtube_subscribe_options' );
 
 	$title 			= ($instance['title'])?$instance['title']:'';
-	$channel_id 	= ($instance['sm_youtube_channel_id'])?$instance['sm_youtube_channel_id']:'UCqCoPdssS6PLjnjtU1bwqdQ';	     
+	$channel_id 	= ($instance['sm_youtube_channel_id'])?$instance['sm_youtube_channel_id']:'UCKIG1BY9SOv2Hg1q5I8WLBQ';	     
 	$layout    		= ($instance['sm_full_layout'])?'full':'default';	     
     $theme    		= ($instance['sm_dark_theme'])?'dark':'default';	     
     $count    		= ($instance['sm_subscriber_count_hide'])?'hidden':'default';	
 	ob_start();
 	?>
-
-	<script src="https://apis.google.com/js/platform.js"></script>
-	<?php if($title):?>
-	<h3><?= $title;?></h3>
-	<?php endif;?>
-	<div 
-		class="g-ytsubscribe" 
-		data-channelid="<?php echo $channel_id; ?>" 
-		data-layout="<?php echo $layout; ?>" 
-		data-theme="<?php echo $theme; ?>" 
-		data-count="<?php echo $count; ?>">			
-	</div>
+    <style type="text/css">
+        .dark_theme{
+            padding: 8px; 
+            background: rgb(85, 85, 85);
+        }
+    </style>
+    <div class="ytsubscribe_container <?php echo $theme; ?>_theme">
+    	<script src="https://apis.google.com/js/platform.js"></script>
+    	<?php if($title):?>
+    	<h3><?= $title;?></h3>
+    	<?php endif;?>
+    	<div 
+    		class="g-ytsubscribe" 
+    		data-channelid="<?php echo $channel_id; ?>" 
+    		data-layout="<?php echo $layout; ?>" 
+    		data-theme="<?php echo $theme; ?>" 
+    		data-count="<?php echo $count; ?>">			
+    	</div>
+    </script>
 	<?php
 	return ob_get_clean();
 }

@@ -2,8 +2,8 @@
 Contributors: mahabubs
 Tags: YouTube, subscribe, share,  widget, shortcode
 Requires at least: 3.5.1
-Tested up to: 4.7
-Stable tag: 1.1.0
+Tested up to: 4.8.1
+Stable tag: 2.0.0
 
 == Description ==
 The pluging for subscribe youtube channel using channel id.
@@ -35,6 +35,9 @@ The pluging for subscribe youtube channel using channel id.
 2. Widget output on page.
 
 == Changelog ==
+
+= 2.0.0 =
+* Fix dark theme problem
 
 = 1.1.0 =
 * Add Settings Page for YouTube Subscription Button
